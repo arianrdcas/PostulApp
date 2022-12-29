@@ -1,35 +1,53 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Table = () => {
+
+const Table = ({data}) => {
+//console.log(data)
+  /* const [data, setData] = useState([
+    {
+      empresa: "Zenta",
+      descripcion: "Ingenieria de softweare",
+      rol: "Full-Stack",
+      numero:1,
+    },
+    {
+      empresa: "Cencosud",
+      descripcion: "Desarrollo web",
+      rol: "Frontend",
+      numero:2,
+    },
+    {
+      empresa: "Falabella",
+      descripcion: "Ingenieria de datos",
+      rol: "Backend",
+      numero:3,
+    },
+  ]); */
+
   return (
     <>
       <div className="container">
-        <div className="row">
-          <div className="col">
-            <table className="table table-success table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nombre de empresa</th>
-                  <th scope="col"> Descripcion de Empresa</th>
-                  <th scope="col">Funciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>
-                    <NavLink to="*">Mark</NavLink>
-                  </td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div />
+        <table className="table table-success table-striped">
+          <thead>
+            <tr>
+              <th>Nombre de empresa</th>
+              <th> Descripcion de Empresa</th>
+              <th>Rol</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((datos) => (
+              <tr key={datos.enterprise}>
+                <td>
+                  <NavLink to="*">{datos.empresa}</NavLink>
+                </td>
+                <td>{datos.descriptions}</td>
+                <td>{datos.rol}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );

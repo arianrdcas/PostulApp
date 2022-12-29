@@ -1,5 +1,6 @@
-import { Routes, Route, Outlet, Link, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import {Home} from "./pages/Home";
+import injectContext from "./store/appContext";
 
 function App() {
   return (
@@ -14,4 +15,4 @@ function App() {
   
 }
 
-export default App;
+export default injectContext(App);
