@@ -19,11 +19,11 @@ const Bienvenido = () => {
       <div className="container text-center">
         <div className="row align-items-center ">
           <div className="col ">
-            <Link type="button" className="btn btn-success regular-button m-5">
+            <Link className="btn btn-success regular-button m-5" to="/registro">
               Registrarse
             </Link>
 
-            <Link type="button" className="btn btn-primary regular-button m-5">
+            <Link className="btn btn-primary regular-button m-5" to="/loggin">
               Acceder
             </Link>
           </div>
