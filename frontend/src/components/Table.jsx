@@ -1,49 +1,27 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
-
-const Table = ({data}) => {
-//console.log(data)
-  /* const [data, setData] = useState([
-    {
-      empresa: "Zenta",
-      descripcion: "Ingenieria de softweare",
-      rol: "Full-Stack",
-      numero:1,
-    },
-    {
-      empresa: "Cencosud",
-      descripcion: "Desarrollo web",
-      rol: "Frontend",
-      numero:2,
-    },
-    {
-      empresa: "Falabella",
-      descripcion: "Ingenieria de datos",
-      rol: "Backend",
-      numero:3,
-    },
-  ]); */
-
+const Table = ({ data }) => {
   return (
     <>
       <div className="container">
         <table className="table table-success table-striped">
           <thead>
             <tr>
+              <th>#</th>
               <th>Nombre de empresa</th>
               <th> Descripcion de Empresa</th>
               <th>Rol</th>
             </tr>
           </thead>
           <tbody>
-            {data.map((datos) => (
-              <tr key={datos.enterprise}>
+            {data.map((data, i) => (
+              <tr key={i}>
+                <td>{data.numero}</td>
                 <td>
-                  <NavLink to="*">{datos.empresa}</NavLink>
+                  <NavLink to="/">{data.empresa}</NavLink>
                 </td>
-                <td>{datos.descriptions}</td>
-                <td>{datos.rol}</td>
+                <td>{data.descripcion}</td>
+                <td>{data.rol}</td>
               </tr>
             ))}
           </tbody>
