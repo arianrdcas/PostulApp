@@ -52,7 +52,7 @@ const Registro = () => {
           value=""
           id="flexCheckDefault"
         />
-        <label className="form-check-label mx-1" for="flexCheckDefault" />
+        <label className="form-check-label mx-1" htmlFor="flexCheckDefault" />
         Lea y acepte los términos y condiciones
         <div className="d-grid gap-2">
           <button type="submit" className="btn btn-info btn-block btn-sm">

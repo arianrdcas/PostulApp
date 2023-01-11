@@ -1,6 +1,6 @@
-import Inputs from "../components/Inputs";
+import Inputs from "../components/Formulario";
 import { useState } from "react";
-import Table from "../components/Table";
+import Table from "../components/Tabla";
 
 export function Home() {
   const [data, setData] = useState([
@@ -8,29 +8,28 @@ export function Home() {
       empresa: "Zenta",
       descripcion: "Ingenieria de softweare",
       rol: "Full-Stack",
-      numero: 1,
+      id: 1,
     },
     {
       empresa: "Cencosud",
       descripcion: "Desarrollo web",
       rol: "Frontend",
-      numero: 2,
+      id: 2,
     },
     {
       empresa: "Falabella",
       descripcion: "Ingenieria de datos",
       rol: "Backend",
-      numero: 3,
+      id: 3,
     },
   ]);
 
-  function createPost(datas) {
+  /* function createPost(datas) {
     setData([...data, datas]);
-  }
+  } */
 
   return (
     <>
-      <Inputs createPost={createPost} />
       <Table data={data} />
     </>
   );

@@ -30,7 +30,7 @@ const Loggin = () => {
         />
         <div className="d-grid gap-2">
           <button type="submit" className="btn btn-info btn-block btn-sm">
-            Registrarse
+            Loggin
           </button>
         </div>
       </form>
