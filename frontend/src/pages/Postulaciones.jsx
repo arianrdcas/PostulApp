@@ -1,4 +1,4 @@
-import Inputs from "../components/Formulario";
+
 import { useState } from "react";
 import Table from "../components/Tabla";
 

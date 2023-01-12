@@ -32,7 +32,7 @@ const Navbar = () => {
                   }
                   to="/home"
                 >
-                  Home
+                  Postulaciones
                 </Link>
               </li>
             </ul>
