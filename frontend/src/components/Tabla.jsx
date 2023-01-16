@@ -48,7 +48,9 @@ const Tabla = () => {
                             </td>
                             <td className="align-baseline">{empresa.id}</td>
                             <td className="align-baseline">
-                              <Link to={"/empresas/" + empresa.id.toString()}>
+                              <Link
+                                to={`/empresapage/${empresa.id}`}
+                              >
                                 {empresa.nombre}
                               </Link>
                             </td>

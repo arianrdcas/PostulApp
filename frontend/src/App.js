@@ -8,6 +8,7 @@ import Postulaciones from "./pages/Postulaciones";
 import Loggin from "./pages/Loggin";
 import Registro from "./pages/Registro";
 import injectContext from "./store/appContext";
+import EmpresaPage from "./pages/EmpresaPage";
 
 function App() {
   return (
@@ -16,11 +17,13 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Bienvenido />} />
-          <Route path="/Postulaciones" element={<Postulaciones />} />
+          <Route path="/postulaciones" element={<Postulaciones />} />
           <Route path="/loggin" element={<Loggin />} />
           <Route path="/registro" element={<Registro />} />
-          <Route path="/empresas/:empresasId" element={<EditarPostulacion />} />
+          <Route path="/empresas/" element={<EditarPostulacion />} />
           <Route path="/formulario" element={<Formulario />} />
+          <Route path="/empresapage/:id" element={<EmpresaPage />} />
+
           <Route path="*" element={<div>404 - NOT FOUND</div>} />
         </Routes>
         <Footer />

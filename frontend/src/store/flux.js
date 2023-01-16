@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       usuario: null,
       empresas: null,
-      empresa: null,
+      empresa:null,
       error: null,
     },
 
@@ -19,8 +19,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch(() => {});
       },
-      getEmpresaById: (url, empresasId) => {
-        fetch(`${url}/${empresasId}`, {})
+      getEmpresaById: (url, id) => {
+        fetch(`${url}/${id}`, {})
           .then((response) => {
             if (!response.ok) setStore({ error: response.error });
             return response.json();
