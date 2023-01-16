@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
-const Table = ({ data }) => {
+const Tabla = () => {
+  const { store } = useContext(Context);
+  const { empresas } = store;
+  
+
   return (
     <>
       <div className="container">
@@ -16,7 +22,7 @@ const Table = ({ data }) => {
                 <table className="table border border-dark table-success table-striped my-5 ">
                   <thead>
                     <tr>
-                      <th scope="col" ></th>
+                      <th scope="col"></th>
                       <th scope="col">#</th>
                       <th scope="col">Nombre de empresa</th>
                       <th scope="col"> Descripción de Empresa</th>
@@ -24,29 +30,35 @@ const Table = ({ data }) => {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.map((data, i) => (
-                      <tr key={i}>
-                        <td>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="checkboxNoLabel"
-                              value=""
-                              aria-label="..."
-                            />
-                          </div>
-                        </td>
-                        <td className="align-baseline">{data.id}</td>
-                        <td className="align-baseline">
-                          <Link to={"/empresas/" + data.id.toString()}>
-                            {data.empresa}
-                          </Link>
-                        </td>
-                        <td className="align-baseline">{data.descripcion}</td>
-                        <td className="align-baseline">{data.rol}</td>
-                      </tr>
-                    ))}
+                    {!!empresas &&
+                      empresas.length > 0 &&
+                      empresas.map((empresa, index) => {
+                        return (
+                          <tr key={index}>
+                            <td>
+                              <div className="form-check">
+                                <input
+                                  className="form-check-input"
+                                  type="checkbox"
+                                  id="checkboxNoLabel"
+                                  value=""
+                                  aria-label="..."
+                                />
+                              </div>
+                            </td>
+                            <td className="align-baseline">{empresa.id}</td>
+                            <td className="align-baseline">
+                              <Link to={"/empresas/" + empresa.id.toString()}>
+                                {empresa.nombre}
+                              </Link>
+                            </td>
+                            <td className="align-baseline">
+                              {empresa.descripcion}
+                            </td>
+                            <td className="align-baseline">{empresa.rol}</td>
+                          </tr>
+                        );
+                      })}
                   </tbody>
                 </table>
               </div>
@@ -75,4 +87,4 @@ const Table = ({ data }) => {
   );
 };
 
-export default Table;
+export default Tabla;

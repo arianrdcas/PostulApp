@@ -16,7 +16,13 @@ const injectContext = (PassedComponent) => {
           }),
       })
     );
-    useEffect(() => {}, []);
+
+    useEffect(() => {
+      state.actions.getEmpresa("http://localhost:3001/empresas");
+    }, []);
+
+    useEffect(() => {}, [state.actions]);
+    
     return (
       <Context.Provider value={state}>
         <PassedComponent {...props} />

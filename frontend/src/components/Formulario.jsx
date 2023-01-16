@@ -1,7 +1,7 @@
 import { useState } from "react";
 //import { useHistory } from "react-router";
 
-const Inputs = ({ createPost }) => {
+const Formulario = ({ createPost }) => {
   //const history = useHistory();
 
   const [empresa, setEmpresa] = useState("");
@@ -97,4 +97,4 @@ const Inputs = ({ createPost }) => {
   );
 };
 
-export default Inputs;
+export default Formulario;

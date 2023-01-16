@@ -28,9 +28,9 @@ const Navbar = () => {
                 <Link
                   className={
                     "nav-link  text-white" +
-                    (location.pathname === "/home" ? "active" : "")
+                    (location.pathname === "/postulaciones" ? "active" : "")
                   }
-                  to="/home"
+                  to="/postulaciones"
                 >
                   Postulaciones
                 </Link>
