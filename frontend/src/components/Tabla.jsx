@@ -10,7 +10,7 @@ const Tabla = () => {
   const [visible, setVisible] = useState(false);
 
   const mostrar = () => {
-    setVisible(true);
+    setVisible(!visible);
   };
 
   return (
@@ -75,7 +75,7 @@ const Tabla = () => {
                     Agregar postulación
                   </Link>
                 </div>
-                {setVisible ? <Botones /> : ""}
+                {visible ? <Botones /> : ""}
               </div>
             </div>
           </div>
