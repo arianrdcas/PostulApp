@@ -1,11 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import Botones from "./Botones";
 
 const Tabla = () => {
   const { store } = useContext(Context);
   const { empresas } = store;
-  
+
+  const [visible, setVisible] = useState(false);
+
+  const mostrar = () => {
+    setVisible(true);
+  };
 
   return (
     <>
@@ -43,14 +49,13 @@ const Tabla = () => {
                                   id="checkboxNoLabel"
                                   value=""
                                   aria-label="..."
+                                  onClick={mostrar}
                                 />
                               </div>
                             </td>
                             <td className="align-baseline">{empresa.id}</td>
                             <td className="align-baseline">
-                              <Link
-                                to={`/empresapage/${empresa.id}`}
-                              >
+                              <Link to={`/empresapage/${empresa.id}`}>
                                 {empresa.nombre}
                               </Link>
                             </td>
@@ -70,16 +75,7 @@ const Tabla = () => {
                     Agregar postulación
                   </Link>
                 </div>
-                <div className="p-2 ">
-                  <Link to="" className="btn btn-info align-baseline">
-                    <i className="fa fa-edit "></i>
-                  </Link>
-                </div>
-                <div className="p-2 ">
-                  <Link to="" className="btn btn-danger align-baseline">
-                    <i className="fa fa-trash "></i>
-                  </Link>
-                </div>
+                {setVisible ? <Botones /> : ""}
               </div>
             </div>
           </div>

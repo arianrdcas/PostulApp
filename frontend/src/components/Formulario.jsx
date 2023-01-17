@@ -1,12 +1,12 @@
 import { useState } from "react";
-//import { useHistory } from "react-router";
 
 const Formulario = ({ createPost }) => {
-  //const history = useHistory();
-
   const [empresa, setEmpresa] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [rol, setRol] = useState("");
+  const [funciones_del_cargo, setFunciones_del_cargo] = useState("");
+  const [requerimientos, setRequerimientos] = useState("");
+  const [condiciones, setCondiciones] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +14,9 @@ const Formulario = ({ createPost }) => {
       empresa,
       descripcion,
       rol,
+      funciones_del_cargo,
+      requerimientos,
+      condiciones,
     };
     createPost(newData);
   };
@@ -35,7 +38,7 @@ const Formulario = ({ createPost }) => {
                     htmlFor="exampleFormControlInput1"
                     className="form-label fw-bold"
                   >
-                    Nombre de la Empresa
+                    Nombre de la empresa
                   </label>
                   <input
                     className="form-control"
@@ -51,7 +54,7 @@ const Formulario = ({ createPost }) => {
                       htmlFor="exampleFormControlTextarea1"
                       className="form-label fw-bold"
                     >
-                      Descripción de Empresa
+                      Descripción de la empresa
                     </label>
 
                     <input
@@ -77,6 +80,57 @@ const Formulario = ({ createPost }) => {
                         name="rol"
                         id="rol"
                         onChange={(e) => setRol(e.target.value)}
+                      />
+                    </div>
+                    <div className="mt-3 mb-4">
+                      <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label fw-bold"
+                      >
+                        Funciones del cargo
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Escriba el rol (frontend, backend o full-stack)"
+                        aria-label="readonly input example"
+                        name="rol"
+                        id="rol"
+                        onChange={(e) => setFunciones_del_cargo(e.target.value)}
+                      />
+                    </div>
+                    <div className="mt-3 mb-4">
+                      <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label fw-bold"
+                      >
+                        Requerimientos
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Escriba el rol (frontend, backend o full-stack)"
+                        aria-label="readonly input example"
+                        name="rol"
+                        id="rol"
+                        onChange={(e) => setRequerimientos(e.target.value)}
+                      />
+                    </div>
+                    <div className="mt-3 mb-4">
+                      <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label fw-bold"
+                      >
+                        Condiciones
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Escriba el rol (frontend, backend o full-stack)"
+                        aria-label="readonly input example"
+                        name="rol"
+                        id="rol"
+                        onChange={(e) => setCondiciones(e.target.value)}
                       />
                     </div>
                   </div>
