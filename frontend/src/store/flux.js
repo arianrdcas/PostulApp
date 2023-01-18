@@ -1,13 +1,20 @@
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       usuario: null,
       empresas: null,
-      empresa:null,
+      empresa: null,
       error: null,
     },
 
     actions: {
+      handleChange: (e) => {
+        setStore({
+          [e.target.name]: e.target.value,
+        });
+      },
+
       getEmpresa: (url) => {
         fetch(url, {})
           .then((response) => {
@@ -31,8 +38,19 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch(() => {});
       },
+      insertEmpresa: (datos) => {
+        fetch("http://localhost:3001/empresas", {
+          method: "POST",
+          body: JSON.stringify(datos),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((resp) => resp.json())
+          .then((response) => console.log(response))
+          .catch((error) => console.error(error));
+      },
     },
-  };
+  }; 
 };
 export default getState;
-

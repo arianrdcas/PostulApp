@@ -1,39 +1,71 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router";
 import { useState } from "react";
+import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
-const Formulario = ({ createPost }) => {
-  const [empresa, setEmpresa] = useState("");
-  const [descripcion, setDescripcion] = useState("");
-  const [rol, setRol] = useState("");
-  const [funciones_del_cargo, setFunciones_del_cargo] = useState("");
-  const [requerimientos, setRequerimientos] = useState("");
-  const [condiciones, setCondiciones] = useState("");
+const Formulario = () => {
+  const { store, actions } = useContext(Context);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newData = {
-      empresa,
-      descripcion,
-      rol,
-      funciones_del_cargo,
-      requerimientos,
-      condiciones,
-    };
-    createPost(newData);
-  };
+  const navigate = useNavigate();
+
+  
+  const [datos, setDatos] = useState({
+    nombre: "",
+    descripcion: "",
+    rol: "",
+    funciones_del_cargo: "",
+    requerimientos: "",
+    condiciones: "",
+  });
+
+
+const handleInputChange = (e) => {
+  //console.log(e.target.username)
+  //console.log(e.target.password)
+  setDatos({
+    ...datos,
+    [e.target.name]: e.target.value,
+  });
+};
+
+const enviarDatos = (e) => {
+  e.preventDefault();
+  
+  actions.insertEmpresa(datos);
+  setDatos({
+    username: "",
+    password: "",
+  });
+  console.log(
+    "enviando datos..." +
+      datos.username +
+      " " +
+      datos.password +
+      " " +
+      datos.username +
+      " " +
+      datos.password +
+      " " +
+      datos.username +
+      " " +
+      datos.password
+  );
+};
 
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={enviarDatos}>
               <div className="card my-5">
                 <div className="card-header text-center">
                   <div className="card-title">
                     <h1>Agregue su postulación</h1>
                   </div>
                 </div>
-                <div className="card-body ">
+                <div className="card-body form-group ">
                   <label
                     htmlFor="exampleFormControlInput1"
                     className="form-label fw-bold"
@@ -45,9 +77,11 @@ const Formulario = ({ createPost }) => {
                     type="text"
                     placeholder="Escriba el nombre de la empresa"
                     aria-label="readonly input example"
-                    name="empresa"
-                    id="empresa"
-                    onChange={(e) => setEmpresa(e.target.value)}
+                    name="nombre"
+                    id="nombre"
+                    value={datos.name}
+                    onChange={handleInputChange}
+                    /* onChange={(e) => setNombre(e.target.value)} */
                   />
                   <div className="my-3">
                     <label
@@ -63,7 +97,10 @@ const Formulario = ({ createPost }) => {
                       placeholder="Escriba la descripción de empresa"
                       name="descripcion"
                       id="descripcion"
-                      onChange={(e) => setDescripcion(e.target.value)}
+                      value={datos.descripcion}
+                      onChange={handleInputChange}
+
+                      /* onChange={(e) => setDescripcion(e.target.value)} */
                     />
                     <div className="mt-3 mb-4">
                       <label
@@ -79,7 +116,10 @@ const Formulario = ({ createPost }) => {
                         aria-label="readonly input example"
                         name="rol"
                         id="rol"
-                        onChange={(e) => setRol(e.target.value)}
+                        value={datos.rol}
+                        onChange={handleInputChange}
+
+                        /* onChange={(e) => setRol(e.target.value)} */
                       />
                     </div>
                     <div className="mt-3 mb-4">
@@ -94,9 +134,12 @@ const Formulario = ({ createPost }) => {
                         type="text"
                         placeholder="Escriba el rol (frontend, backend o full-stack)"
                         aria-label="readonly input example"
-                        name="rol"
-                        id="rol"
-                        onChange={(e) => setFunciones_del_cargo(e.target.value)}
+                        name="funciones_del_cargo"
+                        id="funciones_del_cargo"
+                        value={datos.funciones_del_cargo}
+                        onChange={handleInputChange}
+
+                        /* onChange={(e) => setFunciones_del_cargo(e.target.value)} */
                       />
                     </div>
                     <div className="mt-3 mb-4">
@@ -111,9 +154,12 @@ const Formulario = ({ createPost }) => {
                         type="text"
                         placeholder="Escriba el rol (frontend, backend o full-stack)"
                         aria-label="readonly input example"
-                        name="rol"
-                        id="rol"
-                        onChange={(e) => setRequerimientos(e.target.value)}
+                        name="requerimientos"
+                        id="requerimientos"
+                        value={datos.requerimientos}
+                        onChange={handleInputChange}
+
+                        /* onChange={(e) => setRequerimientos(e.target.value)} */
                       />
                     </div>
                     <div className="mt-3 mb-4">
@@ -128,19 +174,17 @@ const Formulario = ({ createPost }) => {
                         type="text"
                         placeholder="Escriba el rol (frontend, backend o full-stack)"
                         aria-label="readonly input example"
-                        name="rol"
-                        id="rol"
-                        onChange={(e) => setCondiciones(e.target.value)}
+                        name="condiciones"
+                        id="condiciones"
+                        value={datos.condiciones}
+                        onChange={handleInputChange}
+                        /* onChange={(e) => setCondiciones(e.target.value)} */
                       />
                     </div>
                   </div>
                 </div>
                 <div className="card-footer">
-                  <button
-                    className="btn btn-success my-3" /* onClick={() => history.pushState('/')} */
-                  >
-                    Guardar
-                  </button>
+                  <button className="btn btn-success my-3" to="/postulaciones">Guardar</button>
                 </div>
               </div>
             </form>

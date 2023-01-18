@@ -22,6 +22,7 @@ function App() {
           <Route path="/registro" element={<Registro />} />
           <Route path="/empresas/" element={<EditarPostulacion />} />
           <Route path="/formulario" element={<Formulario />} />
+          {/* <Route path="/formulario/:id" element={<Formulario />} /> */}
           <Route path="/empresapage/:id" element={<EmpresaPage />} />
 
           <Route path="*" element={<div>404 - NOT FOUND</div>} />

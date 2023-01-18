@@ -47,7 +47,7 @@ const Tabla = () => {
                                   className="form-check-input"
                                   type="checkbox"
                                   id="checkboxNoLabel"
-                                  value=""
+                                  value={empresa.id}
                                   aria-label="..."
                                   onClick={mostrar}
                                 />
@@ -76,6 +76,7 @@ const Tabla = () => {
                   </Link>
                 </div>
                 {visible ? <Botones /> : ""}
+                
               </div>
             </div>
           </div>
