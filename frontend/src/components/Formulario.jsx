@@ -9,7 +9,6 @@ const Formulario = () => {
 
   const navigate = useNavigate();
 
-  
   const [datos, setDatos] = useState({
     nombre: "",
     descripcion: "",
@@ -19,39 +18,39 @@ const Formulario = () => {
     condiciones: "",
   });
 
+  const handleInputChange = (e) => {
+    setDatos({
+      ...datos,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-const handleInputChange = (e) => {
-  //console.log(e.target.username)
-  //console.log(e.target.password)
-  setDatos({
-    ...datos,
-    [e.target.name]: e.target.value,
-  });
-};
-
-const enviarDatos = (e) => {
-  e.preventDefault();
-  
-  actions.insertEmpresa(datos);
-  setDatos({
-    username: "",
-    password: "",
-  });
-  console.log(
-    "enviando datos..." +
-      datos.username +
-      " " +
-      datos.password +
-      " " +
-      datos.username +
-      " " +
-      datos.password +
-      " " +
-      datos.username +
-      " " +
-      datos.password
-  );
-};
+  const enviarDatos = (e) => {
+    e.preventDefault();
+    actions.insertEmpresa(datos);
+    setDatos({
+      nombre: "",
+      descripcion: "",
+      rol: "",
+      funciones_del_cargo: "",
+      requerimientos: "",
+      condiciones: "",
+    });
+    console.log(
+      "enviando datos..." +
+        datos.username +
+        " " +
+        datos.password +
+        " " +
+        datos.username +
+        " " +
+        datos.password +
+        " " +
+        datos.username +
+        " " +
+        datos.password
+    );
+  };
 
   return (
     <>
@@ -184,7 +183,9 @@ const enviarDatos = (e) => {
                   </div>
                 </div>
                 <div className="card-footer">
-                  <button className="btn btn-success my-3" to="/postulaciones">Guardar</button>
+                  <button className="btn btn-success my-3" to="/postulaciones">
+                    Guardar
+                  </button>
                 </div>
               </div>
             </form>
